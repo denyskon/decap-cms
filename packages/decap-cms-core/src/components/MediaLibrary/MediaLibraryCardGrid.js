@@ -59,6 +59,7 @@ function CardWrapper(props) {
         displayURL={displayURLs.get(file.id, file.url ? Map({ url: file.url }) : Map())}
         loadDisplayURL={() => loadDisplayURL(file)}
         type={file.type}
+        isDirectory={file.isDirectory}
         isViewableImage={file.isViewableImage}
       />
     </div>

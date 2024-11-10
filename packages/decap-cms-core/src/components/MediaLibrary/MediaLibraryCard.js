@@ -76,6 +76,7 @@ class MediaLibraryCard extends React.Component {
       isPrivate,
       type,
       isViewableImage,
+      isDirectory,
       isDraft,
     } = this.props;
     const url = displayURL.get('url');
@@ -91,7 +92,7 @@ class MediaLibraryCard extends React.Component {
       >
         <CardImageWrapper>
           {isDraft ? <DraftText data-testid="draft-text">{draftText}</DraftText> : null}
-          {url && isViewableImage ? (
+          {isDirectory ? (<CardFileIcon>Folder</CardFileIcon>) : url && isViewableImage ? (
             <CardImage loading="lazy" src={url} />
           ) : (
             <CardFileIcon data-testid="card-file-icon">{type}</CardFileIcon>

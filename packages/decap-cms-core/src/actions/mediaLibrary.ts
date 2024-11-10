@@ -373,6 +373,7 @@ export async function getMediaFile(state: State, path: string) {
 
 export function loadMediaDisplayURL(file: MediaFile) {
   return async (dispatch: ThunkDispatch<State, {}, AnyAction>, getState: () => State) => {
+    if (file.isDirectory) return;
     const { displayURL, id } = file;
     const state = getState();
     const displayURLState: DisplayURLState = selectMediaDisplayURL(state, id);
